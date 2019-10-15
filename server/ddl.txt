@@ -1,0 +1,11 @@
+
+
+CREATE TABLE `USER_TB` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_type` int DEFAULT NULL,
+  `user_email` varchar(100) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `password` varchar(500) NOT NULL,
+  `pw_salt` varchar(500) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
