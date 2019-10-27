@@ -6,7 +6,6 @@ class Header extends React.Component {
         // Call the API page
         fetch('/ok')
             .then((result) => {
-                // Get the result
                 // If we want text, call result.text()
                 return result;
             }).then((jsonResult) => {
