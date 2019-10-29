@@ -21,7 +21,7 @@ const doAsync = fn => async (req, res, next) => await fn(req, res, next).catch(n
 
 /**
  * @swagger
- * /user/:
+ * /user/api/getUsername/:email:
  *   get:
  *     summary: 사용자 정보 가져오기
  *     tags: [User]

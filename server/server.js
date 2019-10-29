@@ -8,10 +8,11 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const RedisStore = require('connect-redis')(session);
 
-const swaggerJSDoc = require('swagger-jsdoc');
-const swaggerOption = require(path.join(__dirname, '..', 'server/config/swagger_config'));
-const swaggerSpec = swaggerJSDoc(swaggerOption);
-const swaggerUi = require('swagger-ui-express');
+// const swaggerJSDoc = require('swagger-jsdoc');
+// const swaggerOption = require(path.join(__dirname, '..', 'server/config/swagger_config'));
+// const swaggerSpec = swaggerJSDoc(swaggerOption);
+// const swaggerUi = require('swagger-ui-express');
+const swaggerDoc = require(path.join(__dirname, '..', 'server/config/swagger_config'));
 
 //redis config
 // const redis = require(appRoot + '/config/redisConfig.js');
@@ -47,10 +48,11 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/', main);
-app.use('/users', users);
+app.use('/user', users);
 
 //swagger docs
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+swaggerDoc(app);
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.set('port', environments['port'] || process.env.PORT);
 var server = app.listen(app.get('port'), function () {
